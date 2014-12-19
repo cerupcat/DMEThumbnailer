@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.author   = { 'David Martínez' => 'damarte86@gmail.com' }
   s.frameworks = 'AVFoundation'
   s.source   = {
-    :git => 'https://github.com/damarte/DMEThumbnailer.git',
+    :git => 'https://github.com/cerupcat/DMEThumbnailer.git',
     :tag => '1.3'
   }
   s.requires_arc = true
