@@ -144,7 +144,14 @@
     else{
         aSize = [self adjustSizeRetina:aSize];
         
-        AVURLAsset *asset=[[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:aPath] options:nil];
+        AVURLAsset *asset;
+        if ([aPath containsString:@"http"]) {
+            asset=[[AVURLAsset alloc] initWithURL:[NSURL URLWithString:aPath] options:nil];
+        }
+        else{
+            asset=[[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:aPath] options:nil];
+        }
+        
         [asset loadValuesAsynchronouslyForKeys:[NSArray arrayWithObject:@"duration"] completionHandler: ^{
             NSError *error = nil;
             CMTime thumbTime;
